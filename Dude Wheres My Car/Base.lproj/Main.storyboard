@@ -30,8 +30,16 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="4uI-hI-7YJ">
-                        <barButtonItem key="leftBarButtonItem" title="Delete All Pins" id="h5G-BL-DPu"/>
-                        <barButtonItem key="rightBarButtonItem" title="Drop A Pin" id="2lj-wc-96C"/>
+                        <barButtonItem key="leftBarButtonItem" title="Delete All Pins" id="h5G-BL-DPu">
+                            <connections>
+                                <action selector="deleteAllPins:" destination="BYZ-38-t0r" id="DVD-cZ-AEt"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Drop A Pin" id="2lj-wc-96C">
+                            <connections>
+                                <action selector="dropAPin:" destination="BYZ-38-t0r" id="UGd-FZ-gy1"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="uaI-dv-HMf" id="41h-Sj-HHd"/>

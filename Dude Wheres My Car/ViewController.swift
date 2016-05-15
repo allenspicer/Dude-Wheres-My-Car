@@ -12,9 +12,12 @@ import MapKit
 class ViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
 
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
+
         // set map center Honolulu
         let initialLocation = CLLocation(latitude: 21.282778, longitude: -157.829444)
         //define a distance to be applied below
@@ -35,26 +38,18 @@ class ViewController: UIViewController {
         
         mapView.delegate = self
         
-        // show artwork on map
-        let car = Car(title: "King David Kalakaua",
-                              locationName: "Waikiki Gateway Park",
-                              discipline: "Sculpture",
-                              coordinate: CLLocationCoordinate2D(latitude: 21.283921, longitude: -157.831661))
-        
-        mapView.addAnnotation(car)
-        
-        
-        
-        
     }
 
-// MARK: - location manager to authorize user location for Maps app
+//location manager to authorize user location for Maps app
         var locationManager = CLLocationManager()
+
+    
         func checkLocationAuthorizationStatus() {
             if CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse {
                 mapView.showsUserLocation = true
             } else {
                 locationManager.requestWhenInUseAuthorization()
+                
             }
         }
 
@@ -62,6 +57,28 @@ class ViewController: UIViewController {
             super.viewDidAppear(animated)
             checkLocationAuthorizationStatus()
         }
+    
+@IBAction func dropAPin(sender: UIBarButtonItem) {
+    
+//    locationManager = locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!)
+//        let userLocation:CLLocation = locations[0] as! CLLocation
+//        let long = userLocation.coordinate.longitude;
+//        let lat = userLocation.coordinate.latitude;
+    
+    let car = Car(title: "My Car",
+                  locationName: "Parked Location",
+                  discipline: "",
+               //   coordinate: CLLocationCoordinate2D(latitude:lat , longitude:long))
+                    coordinate: CLLocationCoordinate2D(latitude: 21.282778, longitude: -157.829444))
+    
+            mapView.addAnnotation(car)
+    
+    
+}
+    
+    
+@IBAction func deleteAllPins(sender: UIBarButtonItem) {
+    }
     
     
 }
