@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import MapKit
+import MapKit 
 
 class ViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
@@ -28,7 +28,24 @@ class ViewController: UIViewController {
             //display the region
             mapView.setRegion(coordinateRegion, animated: true)
             }
-
+        //run the defined function with the location specified at the top as the map center
+        centerMapOnLocation(initialLocation)
+       
+        //set delegate to self
+        
+        mapView.delegate = self
+        
+        // show artwork on map
+        let car = Car(title: "King David Kalakaua",
+                              locationName: "Waikiki Gateway Park",
+                              discipline: "Sculpture",
+                              coordinate: CLLocationCoordinate2D(latitude: 21.283921, longitude: -157.831661))
+        
+        mapView.addAnnotation(car)
+        
+        
+        
+        
     }
 
 
