@@ -14,6 +14,7 @@
 		9F5CC8AF1CE924BB00E14076 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F5CC8AD1CE924BB00E14076 /* LaunchScreen.storyboard */; };
 		9F5CC8B71CE92C6500E14076 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5CC8B61CE92C6500E14076 /* Car.swift */; };
 		9F5CC8B91CE931FD00E14076 /* VCMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5CC8B81CE931FD00E14076 /* VCMapView.swift */; };
+		9F5CC8BB1CEA04D900E14076 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F5CC8BA1CEA04D900E14076 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		9F5CC8B01CE924BB00E14076 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F5CC8B61CE92C6500E14076 /* Car.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
 		9F5CC8B81CE931FD00E14076 /* VCMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCMapView.swift; sourceTree = "<group>"; };
+		9F5CC8BA1CEA04D900E14076 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F5CC8BB1CEA04D900E14076 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +45,7 @@
 		9F5CC8981CE924BB00E14076 = {
 			isa = PBXGroup;
 			children = (
+				9F5CC8BA1CEA04D900E14076 /* MapKit.framework */,
 				9F5CC8A31CE924BB00E14076 /* Dude Wheres My Car */,
 				9F5CC8A21CE924BB00E14076 /* Products */,
 			);
@@ -103,6 +107,11 @@
 					9F5CC8A01CE924BB00E14076 = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = QS2H85Z9GF;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -297,6 +306,7 @@
 				9F5CC8B51CE924BB00E14076 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

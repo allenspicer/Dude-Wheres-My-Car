@@ -12,13 +12,22 @@ import MapKit
 class ViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
 
+    //location manager
+    var locationManager = CLLocationManager()
+
+   // var  locationManager = CLLocationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!)
+     //   let userLocation:CLLocation = locations[0] as! CLLocation
+    //        let long = userLocation.coordinate.longitude;
+    //        let lat = userLocation.coordinate.latitude;
     
+    // locationManager.startUpdatingLocation()
+    // locationManager.desiredAccuracy = kCLLocationAccuracyBest
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
 
-        // set map center Honolulu
+        // set map center
         let initialLocation = CLLocation(latitude: 21.282778, longitude: -157.829444)
         //define a distance to be applied below
         let regionRadius: CLLocationDistance = 1000
@@ -40,16 +49,11 @@ class ViewController: UIViewController {
         
     }
 
-//location manager to authorize user location for Maps app
-        var locationManager = CLLocationManager()
-
-    
         func checkLocationAuthorizationStatus() {
             if CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse {
                 mapView.showsUserLocation = true
             } else {
                 locationManager.requestWhenInUseAuthorization()
-                
             }
         }
 
@@ -60,14 +64,8 @@ class ViewController: UIViewController {
     
 @IBAction func dropAPin(sender: UIBarButtonItem) {
     
-//    locationManager = locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!)
-//        let userLocation:CLLocation = locations[0] as! CLLocation
-//        let long = userLocation.coordinate.longitude;
-//        let lat = userLocation.coordinate.latitude;
-    
     let car = Car(title: "My Car",
                   locationName: "Parked Location",
-                  discipline: "",
                //   coordinate: CLLocationCoordinate2D(latitude:lat , longitude:long))
                     coordinate: CLLocationCoordinate2D(latitude: 21.282778, longitude: -157.829444))
     
@@ -78,7 +76,8 @@ class ViewController: UIViewController {
     
     
 @IBAction func deleteAllPins(sender: UIBarButtonItem) {
+    let annotationsArray:Array = mapView.annotations
+    mapView.removeAnnotations(annotationsArray)
     }
-    
-    
+
 }
