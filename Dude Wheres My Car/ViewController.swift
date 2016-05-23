@@ -9,7 +9,7 @@
 import UIKit
 import MapKit 
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, CLLocationManagerDelegate{
     @IBOutlet weak var mapView: MKMapView!
 
     //location manager
@@ -26,6 +26,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        locationManager.delegate = self
 
         // set map center
         let initialLocation = CLLocation(latitude: 21.282778, longitude: -157.829444)
@@ -64,10 +65,18 @@ class ViewController: UIViewController {
     
 @IBAction func dropAPin(sender: UIBarButtonItem) {
     
+    NSLog(String(mapView.userLocation.location?.coordinate.latitude))
+    NSLog(String(mapView.userLocation.location?.coordinate.longitude))
+    
+    let lat = mapView.centerCoordinate.latitude
+    let long = mapView.centerCoordinate.longitude
+    
+    let userLocation = CLLocationCoordinate2DMake(lat, long)
+    
     let car = Car(title: "My Car",
                   locationName: "Parked Location",
                //   coordinate: CLLocationCoordinate2D(latitude:lat , longitude:long))
-                    coordinate: CLLocationCoordinate2D(latitude: 21.282778, longitude: -157.829444))
+                    coordinate: userLocation)
     
             mapView.addAnnotation(car)
     
