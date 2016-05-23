@@ -27,6 +27,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         super.viewDidLoad()
         
         locationManager.delegate = self
+        
+        mapView.showsUserLocation = true
+        
 
         // set map center
         let initialLocation = CLLocation(latitude: 21.282778, longitude: -157.829444)
