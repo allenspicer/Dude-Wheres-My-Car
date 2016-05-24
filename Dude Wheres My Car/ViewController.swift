@@ -79,7 +79,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
 }
     func zoomToUserAndPin(){
         
-        if (pinDropCoordinate != nil && carLocation != nil){
+        if (pinDropCoordinate != nil &&  != nil){
             
             self.
         }
