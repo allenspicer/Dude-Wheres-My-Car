@@ -79,6 +79,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
 }
     func zoomToUserAndPin(){
         
+        locationManager
+        
         if (pinDropCoordinate != nil &&  != nil){
             
             self.
