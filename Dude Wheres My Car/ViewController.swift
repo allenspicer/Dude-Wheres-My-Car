@@ -14,14 +14,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
 
     //location manager
     var locationManager = CLLocationManager()
-
-   // var  locationManager = CLLocationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!)
-     //   let userLocation:CLLocation = locations[0] as! CLLocation
-    //        let long = userLocation.coordinate.longitude;
-    //        let lat = userLocation.coordinate.latitude;
-    
-    // locationManager.startUpdatingLocation()
-    // locationManager.desiredAccuracy = kCLLocationAccuracyBest
+    var pinDropCoordinate = CLLocationCoordinate2D()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +22,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         locationManager.delegate = self
         
         mapView.showsUserLocation = true
+        
         
 
         // set map center
@@ -66,25 +60,31 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
             checkLocationAuthorizationStatus()
         }
     
-@IBAction func dropAPin(sender: UIBarButtonItem) {
+@IBAction func markCarWithPin(sender: UIBarButtonItem) {
     
     NSLog(String(mapView.userLocation.location?.coordinate.latitude))
     NSLog(String(mapView.userLocation.location?.coordinate.longitude))
     
-    let lat = mapView.centerCoordinate.latitude
-    let long = mapView.centerCoordinate.longitude
-    
-    let userLocation = CLLocationCoordinate2DMake(lat, long)
+    pinDropCoordinate.latitude = mapView.centerCoordinate.latitude
+    pinDropCoordinate.longitude = mapView.centerCoordinate.longitude
     
     let car = Car(title: "My Car",
                   locationName: "Parked Location",
-               //   coordinate: CLLocationCoordinate2D(latitude:lat , longitude:long))
-                    coordinate: userLocation)
+                    coordinate: pinDropCoordinate)
     
-            mapView.addAnnotation(car)
+    mapView.addAnnotation(car)
     
+    zoomToUserAndPin()
     
 }
+    func zoomToUserAndPin(){
+        
+        if (pinDropCoordinate != nil && carLocation != nil){
+            
+            self.
+        }
+    }
+    
     
     
 @IBAction func deleteAllPins(sender: UIBarButtonItem) {
